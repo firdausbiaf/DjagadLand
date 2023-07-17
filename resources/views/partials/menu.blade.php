@@ -63,6 +63,16 @@
                                     </a>
                                 </li>
                             @endcan
+                            @can('data_access')
+                                <li class="nav-item">
+                                    <a href="{{ route("admin.data.index") }}" class="nav-link {{ request()->is('admin/datas') || request()->is('admin/datas/*') ? 'active' : '' }}">
+                                        <i class="fa-fw fas fa-user">
+
+                                        </i>
+                                        <span>{{ trans('cruds.data.title') }}</span>
+                                    </a>
+                                </li>
+                            @endcan
                         </ul>
                     </div>
                 </li>
