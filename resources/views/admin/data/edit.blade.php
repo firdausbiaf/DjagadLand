@@ -40,6 +40,18 @@
                     {{ trans('cruds.data.fields.telepon_helper') }}
                 </p>
             </div>
+            <div class="form-group {{ $errors->has('alamat') ? 'has-error' : '' }}">
+                <label for="alamat">{{ trans('cruds.data.fields.alamat') }}</label>
+                <input type="text" id="alamat" name="alamat" class="form-control" value="{{ old('alamat', isset($data) ? $data->alamat : '') }}">
+                @if($errors->has('alamat'))
+                    <p class="help-block">
+                        {{ $errors->first('alamat') }}
+                    </p>
+                @endif
+                <p class="helper-block">
+                    {{ trans('cruds.data.fields.alamat_helper') }}
+                </p>
+            </div>
             <div class="form-group {{ $errors->has('kavling') ? 'has-error' : '' }}">
                 <label for="kavling">{{ trans('cruds.data.fields.kavling') }}</label>
                 <input type="text" id="kavling" name="kavling" class="form-control" value="{{ old('kavling', isset($data) ? $data->kavling : '') }}">

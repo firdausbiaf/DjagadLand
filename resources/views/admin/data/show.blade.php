@@ -38,6 +38,14 @@
                     </tr>
                     <tr>
                         <th>
+                            {{ trans('cruds.data.fields.alamat') }}
+                        </th>
+                        <td>
+                            {{ $data->alamat ?? '' }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
                             {{ trans('cruds.data.fields.kavling') }}
                         </th>
                         <td>
