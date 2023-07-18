@@ -15,6 +15,7 @@ class Data extends Model
     protected $fillable = [
         'user_id',
         'telepon',
+        'alamat',
         'kavling',
         'tipe',
         'spk',

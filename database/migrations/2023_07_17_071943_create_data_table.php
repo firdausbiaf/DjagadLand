@@ -17,6 +17,7 @@ class CreateDataTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('user_id');
             $table->string('telepon');
+            $table->string('alamat');
             $table->string('kavling');
             $table->unsignedBigInteger('tipe');
             $table->string('spk');

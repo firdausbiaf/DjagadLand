@@ -39,6 +39,7 @@
                         <span class="navbar-toggler-icon icon-bar"></span>
                         <span class="navbar-toggler-icon icon-bar"></span>
                     </button>
+<<<<<<< HEAD
                     <div class="collapse navbar-collapse justify-content-end">
                         <!-- Right navbar links -->
                         {{-- @if(count(config('panel.available_languages', [])) > 1)
@@ -56,6 +57,8 @@
                             </ul>
                         @endif --}}
                     </div>
+=======
+>>>>>>> e3cb0d93f59fd8c4a6786953ed1a17f761e7c76a
                 </div>
 
             </nav>

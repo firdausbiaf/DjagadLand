@@ -75,6 +75,8 @@ return [
             'name_helper'              => '',
             'telepon'                  => 'Telepon',
             'telepon_helper'           => '',
+            'alamat'                  => 'Alamat',
+            'alamat_helper'           => '',
             'kavling'                  => 'Kavling',
             'kavling_helper'           => '',
             'tipe'                     => 'Tipe',
