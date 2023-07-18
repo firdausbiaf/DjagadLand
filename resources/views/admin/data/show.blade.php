@@ -4,7 +4,7 @@
 <div class="card">
     <div class="card-header card-header-primary">
         <h4 class="card-title">
-            {{ trans('global.show') }} {{ trans('cruds.user.title') }}
+            {{ trans('global.show') }} {{ trans('cruds.data.title') }}
         </h4>
     </div>
 
@@ -14,44 +14,66 @@
                 <tbody>
                     <tr>
                         <th>
-                            {{ trans('cruds.user.fields.id') }}
+                            {{ trans('cruds.data.fields.id') }}
                         </th>
                         <td>
-                            {{ $user->id }}
+                            {{ $data->id }}
                         </td>
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.user.fields.name') }}
+                            {{ trans('cruds.data.fields.user') }}
                         </th>
                         <td>
-                            {{ $user->name }}
+                            {{ $data->user->name ?? '' }}
                         </td>
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.user.fields.email') }}
+                            {{ trans('cruds.data.fields.telepon') }}
                         </th>
                         <td>
-                            {{ $user->email }}
+                            {{ $data->telepon ?? '' }}
                         </td>
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.user.fields.email_verified_at') }}
+                            {{ trans('cruds.data.fields.kavling') }}
                         </th>
                         <td>
-                            {{ $user->email_verified_at }}
+                            {{ $data->kavling ?? '' }}
                         </td>
                     </tr>
                     <tr>
                         <th>
-                            Roles
+                            {{ trans('cruds.data.fields.tipe') }}
                         </th>
                         <td>
-                            @foreach($user->roles as $id => $roles)
-                                <span class="label label-info label-many">{{ $roles->title }}</span>
-                            @endforeach
+                            {{ $data->tipe ?? '' }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.data.fields.spk') }}
+                        </th>
+                        <td>
+                            {{ $data->spk ?? '' }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.data.fields.progres') }}
+                        </th>
+                        <td>
+                            {{ $data->progres ?? '' }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.data.fields.cicilan') }}
+                        </th>
+                        <td>
+                            {{ $data->cicilan ?? '' }}
                         </td>
                     </tr>
                 </tbody>
@@ -60,8 +82,6 @@
                 {{ trans('global.back_to_list') }}
             </a>
         </div>
-
-
     </div>
 </div>
 @endsection

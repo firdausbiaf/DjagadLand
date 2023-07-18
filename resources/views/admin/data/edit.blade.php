@@ -4,74 +4,106 @@
 <div class="card">
     <div class="card-header card-header-primary">
         <h4 class="card-title">
-            {{ trans('global.edit') }} {{ trans('cruds.user.title_singular') }}
+            {{ trans('global.edit') }} {{ trans('cruds.data.title_singular') }}
         </h4>
     </div>
 
     <div class="card-body">
-        <form action="{{ route("admin.users.update", [$user->id]) }}" method="POST" enctype="multipart/form-data">
+        <<form action="{{ route("admin.data.update", [$data->id]) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
-            <div class="form-group {{ $errors->has('name') ? 'has-error' : '' }}">
-                <label for="name">{{ trans('cruds.user.fields.name') }}*</label>
-                <input type="text" id="name" name="name" class="form-control" value="{{ old('name', isset($user) ? $user->name : '') }}" required>
-                @if($errors->has('name'))
-                    <p class="help-block">
-                        {{ $errors->first('name') }}
-                    </p>
-                @endif
-                <p class="helper-block">
-                    {{ trans('cruds.user.fields.name_helper') }}
-                </p>
-            </div>
-            <div class="form-group {{ $errors->has('email') ? 'has-error' : '' }}">
-                <label for="email">{{ trans('cruds.user.fields.email') }}*</label>
-                <input type="email" id="email" name="email" class="form-control" value="{{ old('email', isset($user) ? $user->email : '') }}" required>
-                @if($errors->has('email'))
-                    <p class="help-block">
-                        {{ $errors->first('email') }}
-                    </p>
-                @endif
-                <p class="helper-block">
-                    {{ trans('cruds.user.fields.email_helper') }}
-                </p>
-            </div>
-            <div class="form-group {{ $errors->has('password') ? 'has-error' : '' }}">
-                <label for="password">{{ trans('cruds.user.fields.password') }}</label>
-                <input type="password" id="password" name="password" class="form-control">
-                @if($errors->has('password'))
-                    <p class="help-block">
-                        {{ $errors->first('password') }}
-                    </p>
-                @endif
-                <p class="helper-block">
-                    {{ trans('cruds.user.fields.password_helper') }}
-                </p>
-            </div>
-            <div class="form-group {{ $errors->has('roles') ? 'has-error' : '' }}">
-                <label for="roles">{{ trans('cruds.user.fields.roles') }}*
-                    <span class="btn btn-info btn-xs select-all">{{ trans('global.select_all') }}</span>
-                    <span class="btn btn-info btn-xs deselect-all">{{ trans('global.deselect_all') }}</span></label>
-                <select name="roles[]" id="roles" class="form-control select2" multiple="multiple" required>
-                    @foreach($roles as $id => $roles)
-                        <option value="{{ $id }}" {{ (in_array($id, old('roles', [])) || isset($user) && $user->roles->contains($id)) ? 'selected' : '' }}>{{ $roles }}</option>
+            <div class="form-group {{ $errors->has('user_id') ? 'has-error' : '' }}">
+                <label for="user_id">{{ trans('cruds.data.fields.user') }}*</label>
+                <select name="user_id" id="user_id" class="form-control select2" required>
+                    @foreach($users as $id => $user)
+                        <option value="{{ $id }}" {{ (isset($data) && $data->user_id == $id) ? 'selected' : '' }}>{{ $user }}</option>
                     @endforeach
                 </select>
-                @if($errors->has('roles'))
+                @if($errors->has('user_id'))
                     <p class="help-block">
-                        {{ $errors->first('roles') }}
+                        {{ $errors->first('user_id') }}
                     </p>
                 @endif
                 <p class="helper-block">
-                    {{ trans('cruds.user.fields.roles_helper') }}
+                    {{ trans('cruds.data.fields.user_helper') }}
+                </p>
+            </div>
+            <div class="form-group {{ $errors->has('telepon') ? 'has-error' : '' }}">
+                <label for="telepon">{{ trans('cruds.data.fields.telepon') }}</label>
+                <input type="text" id="telepon" name="telepon" class="form-control" value="{{ old('telepon', isset($data) ? $data->telepon : '') }}">
+                @if($errors->has('telepon'))
+                    <p class="help-block">
+                        {{ $errors->first('telepon') }}
+                    </p>
+                @endif
+                <p class="helper-block">
+                    {{ trans('cruds.data.fields.telepon_helper') }}
+                </p>
+            </div>
+            <div class="form-group {{ $errors->has('kavling') ? 'has-error' : '' }}">
+                <label for="kavling">{{ trans('cruds.data.fields.kavling') }}</label>
+                <input type="text" id="kavling" name="kavling" class="form-control" value="{{ old('kavling', isset($data) ? $data->kavling : '') }}">
+                @if($errors->has('kavling'))
+                    <p class="help-block">
+                        {{ $errors->first('kavling') }}
+                    </p>
+                @endif
+                <p class="helper-block">
+                    {{ trans('cruds.data.fields.kavling_helper') }}
+                </p>
+            </div>
+            <div class="form-group {{ $errors->has('tipe') ? 'has-error' : '' }}">
+                <label for="tipe">{{ trans('cruds.data.fields.tipe') }}</label>
+                <input type="text" id="tipe" name="tipe" class="form-control" value="{{ old('tipe', isset($data) ? $data->tipe : '') }}">
+                @if($errors->has('tipe'))
+                    <p class="help-block">
+                        {{ $errors->first('tipe') }}
+                    </p>
+                @endif
+                <p class="helper-block">
+                    {{ trans('cruds.data.fields.tipe_helper') }}
+                </p>
+            </div>
+            <div class="form-group {{ $errors->has('spk') ? 'has-error' : '' }}">
+                <label for="spk">{{ trans('cruds.data.fields.spk') }}</label>
+                <input type="text" id="spk" name="spk" class="form-control" value="{{ old('spk', isset($data) ? $data->spk : '') }}">
+                @if($errors->has('spk'))
+                    <p class="help-block">
+                        {{ $errors->first('spk') }}
+                    </p>
+                @endif
+                <p class="helper-block">
+                    {{ trans('cruds.data.fields.spk_helper') }}
+                </p>
+            </div>
+            <div class="form-group {{ $errors->has('progres') ? 'has-error' : '' }}">
+                <label for="progres">{{ trans('cruds.data.fields.progres') }}</label>
+                <input type="text" id="progres" name="progres" class="form-control" value="{{ old('progres', isset($data) ? $data->progres : '') }}">
+                @if($errors->has('progres'))
+                    <p class="help-block">
+                        {{ $errors->first('progres') }}
+                    </p>
+                @endif
+                <p class="helper-block">
+                    {{ trans('cruds.data.fields.progres_helper') }}
+                </p>
+            </div>
+            <div class="form-group {{ $errors->has('cicilan') ? 'has-error' : '' }}">
+                <label for="cicilan">{{ trans('cruds.data.fields.cicilan') }}</label>
+                <input type="text" id="cicilan" name="cicilan" class="form-control" value="{{ old('cicilan', isset($data) ? $data->cicilan : '') }}">
+                @if($errors->has('cicilan'))
+                    <p class="help-block">
+                        {{ $errors->first('cicilan') }}
+                    </p>
+                @endif
+                <p class="helper-block">
+                    {{ trans('cruds.data.fields.cicilan_helper') }}
                 </p>
             </div>
             <div>
                 <input class="btn btn-danger" type="submit" value="{{ trans('global.save') }}">
             </div>
         </form>
-
-
     </div>
 </div>
 @endsection

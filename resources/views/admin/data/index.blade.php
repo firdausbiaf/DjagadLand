@@ -25,10 +25,7 @@
 
                         </th>
                         <th>
-                            {{ trans('cruds.data.fields.id_user') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.data.fields.nama') }}
+                            {{ trans('cruds.data.fields.user') }}
                         </th>
                         <th>
                             {{ trans('cruds.data.fields.telepon') }}
@@ -54,16 +51,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($datas as $key => $data)
+                    @foreach($data as $key => $data)
                         <tr data-entry-id="{{ $data->id }}">
                             <td>
 
                             </td>
                             <td>
-                                {{ $data->id_user ?? '' }}
-                            </td>
-                            <td>
-                                {{ $data->nama ?? '' }}
+                                {{ $data->user->name ?? '' }}
                             </td>
                             <td>
                                 {{ $data->telepon ?? '' }}

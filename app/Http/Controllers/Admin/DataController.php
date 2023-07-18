@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Data;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\MassDestroyDataRequest;
 use App\Http\Requests\StoreDataRequest;
 use App\Http\Requests\UpdateDataRequest;
-use App\Http\Requests\MassDestroyPermissionRequest;
 use App\User;
 use Gate;
 use Illuminate\Http\Request;
@@ -21,11 +21,11 @@ class DataController extends Controller
      */
     public function index()
     {
-        abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        abort_if(Gate::denies('data_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $datas = User::all();
+        $data = Data::with('user')->get();
 
-        return view('admin.data.index', compact('datas'));
+        return view('admin.data.index', compact('data'));
     }
 
     /**
@@ -35,7 +35,11 @@ class DataController extends Controller
      */
     public function create()
     {
-        //
+        abort_if(Gate::denies('data_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        $users = User::pluck('name', 'id');
+
+        return view('admin.data.create', compact('users'));
     }
 
     /**
@@ -46,7 +50,9 @@ class DataController extends Controller
      */
     public function store(StoreDataRequest $request)
     {
-        //
+        $data = Data::create($request->all());
+
+        return redirect()->route('admin.data.index');
     }
 
     /**
@@ -57,7 +63,9 @@ class DataController extends Controller
      */
     public function show(Data $data)
     {
-        //
+        abort_if(Gate::denies('data_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        return view('admin.data.show', compact('data'));
     }
 
     /**
@@ -68,7 +76,11 @@ class DataController extends Controller
      */
     public function edit(Data $data)
     {
-        //
+        abort_if(Gate::denies('data_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        $users = User::pluck('name', 'id');
+
+        return view('admin.data.edit', compact('data', 'users'));
     }
 
     /**
@@ -80,7 +92,9 @@ class DataController extends Controller
      */
     public function update(UpdateDataRequest $request, Data $data)
     {
-        //
+        $data->update($request->all());
+
+        return redirect()->route('admin.data.index');
     }
 
     /**
@@ -91,6 +105,17 @@ class DataController extends Controller
      */
     public function destroy(Data $data)
     {
-        //
+        abort_if(Gate::denies('data_delete'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        $data->delete();
+
+        return back();
+    }
+
+    public function massDestroy(MassDestroyDataRequest $request)
+    {
+        Data::whereIn('id', request('ids'))->delete();
+
+        return response(null, Response::HTTP_NO_CONTENT);
     }
 }

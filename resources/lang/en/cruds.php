@@ -69,8 +69,8 @@ return [
         'title'          => 'Data',
         'title_singular' => 'Data',
         'fields'         => [
-            'id_user'                  => 'ID User',
-            'id_user_helper'           => '',
+            'user'                     => 'User',
+            'user_helper'              => '',
             'nama'                     => 'Nama',
             'name_helper'              => '',
             'telepon'                  => 'Telepon',

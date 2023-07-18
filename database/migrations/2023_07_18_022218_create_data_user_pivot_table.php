@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDataTable extends Migration
+class CreateDataUserPivotTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,11 @@ class CreateDataTable extends Migration
      */
     public function up()
     {
-        Schema::create('data', function (Blueprint $table) {
-            $table->increments('id');
+        Schema::create('data_user', function (Blueprint $table) {
+            $table->unsignedInteger('data_id');
+            $table->foreign('data_id')->references('id')->on('data')->onDelete('cascade');
+            
             $table->unsignedInteger('user_id');
-            $table->string('telepon');
-            $table->string('kavling');
-            $table->string('tipe');
-            $table->string('spk');
-            $table->string('progres');
-            $table->string('cicilan');
-            $table->timestamps();
-            $table->softDeletes();
-
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
@@ -36,6 +29,6 @@ class CreateDataTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('data');
+        Schema::dropIfExists('data_user');
     }
 }

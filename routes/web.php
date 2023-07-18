@@ -18,7 +18,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::delete('users/destroy', 'UsersController@massDestroy')->name('users.massDestroy');
     Route::resource('users', 'UsersController');
 
-    // Datas
+    // Data
     Route::delete('data/destroy', 'DataController@massDestroy')->name('data.massDestroy');
     Route::resource('data', 'DataController');
 
