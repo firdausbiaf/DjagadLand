@@ -72,7 +72,7 @@
                                 {{ $data->spk ?? '' }}
                             </td>
                             <td>
-                                {{ $data->progress ?? '' }}
+                                {{ $data->progres ?? '' }} %
                             </td>
                             <td>
                                 {{ $data->cicilan ?? '' }}

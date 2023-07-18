@@ -3,7 +3,7 @@
 return [
     'actions'                              => 'Actions',
     'add'                                  => 'Add',
-    'allRightsReserved'                    => 'All rights reserved.',
+    'djagadland'                           => 'Djagad Land',
     'areYouSure'                           => 'Are you sure?',
     'clickHereToVerify'                    => 'Click here to verify',
     'create'                               => 'Create',

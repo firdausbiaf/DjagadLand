@@ -41,7 +41,7 @@
                     </button>
                     <div class="collapse navbar-collapse justify-content-end">
                         <!-- Right navbar links -->
-                        @if(count(config('panel.available_languages', [])) > 1)
+                        {{-- @if(count(config('panel.available_languages', [])) > 1)
                             <ul class="navbar-nav ml-auto">
                                 <li class="nav-item dropdown">
                                     <a class="nav-link" data-toggle="dropdown" href="#">
@@ -54,7 +54,7 @@
                                     </div>
                                 </li>
                             </ul>
-                        @endif
+                        @endif --}}
                     </div>
                 </div>
 
@@ -81,7 +81,7 @@
             </section>
             <!-- /.content -->
             <footer class="footer justify-content-center">
-                <strong> &copy;</strong> {{ trans('global.allRightsReserved') }}
+                <strong> &copy;</strong> {{ trans('global.djagadland') }}
             </footer>
         </div>
         <form id="logoutform" action="{{ route('logout') }}" method="POST" style="display: none;">

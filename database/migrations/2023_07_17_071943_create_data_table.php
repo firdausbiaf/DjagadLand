@@ -18,10 +18,10 @@ class CreateDataTable extends Migration
             $table->unsignedInteger('user_id');
             $table->string('telepon');
             $table->string('kavling');
-            $table->string('tipe');
+            $table->unsignedBigInteger('tipe');
             $table->string('spk');
-            $table->string('progres');
-            $table->string('cicilan');
+            $table->unsignedBigInteger('progres');
+            $table->unsignedBigInteger('cicilan');
             $table->timestamps();
             $table->softDeletes();
 

@@ -65,7 +65,7 @@
                             {{ trans('cruds.data.fields.progres') }}
                         </th>
                         <td>
-                            {{ $data->progres ?? '' }}
+                            {{ $data->progres ?? '' }} %
                         </td>
                     </tr>
                     <tr>

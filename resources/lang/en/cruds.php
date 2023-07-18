@@ -85,6 +85,8 @@ return [
             'progres_helper'           => '',
             'cicilan'                  => 'Cicilan',
             'cicilan_helper'           => '',
+            'id'                       => 'ID',
+            'id_helper'                => ''
         ],
     ],
 ];
