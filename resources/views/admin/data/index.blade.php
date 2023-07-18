@@ -78,11 +78,7 @@
                                 {{ $data->spk ?? '' }}
                             </td>
                             <td>
-<<<<<<< HEAD
                                 {{ $data->progres ?? '' }} %
-=======
-                                {{ $data->progres ?? '' }}
->>>>>>> e3cb0d93f59fd8c4a6786953ed1a17f761e7c76a
                             </td>
                             <td>
                                 {{ $data->cicilan ?? '' }}

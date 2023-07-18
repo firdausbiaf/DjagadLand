@@ -77,7 +77,7 @@
                 </p>
             </div>
             <div class="form-group {{ $errors->has('progres') ? 'has-error' : '' }}">
-                <label for="progres">{{ trans('cruds.data.fields.progres') }}</label>
+                <label for="progres">{{ trans('cruds.data.fields.progres') }} ( % ) </label>
                 <input type="text" id="progres" name="progres" class="form-control" value="{{ old('progres', isset($data) ? $data->progres : '') }}">
                 @if($errors->has('progres'))
                     <p class="help-block">
