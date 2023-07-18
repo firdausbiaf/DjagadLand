@@ -31,6 +31,9 @@
                             {{ trans('cruds.data.fields.telepon') }}
                         </th>
                         <th>
+                            {{ trans('cruds.data.fields.alamat') }}
+                        </th>
+                        <th>
                             {{ trans('cruds.data.fields.kavling') }}
                         </th>
                         <th>
@@ -63,6 +66,9 @@
                                 {{ $data->telepon ?? '' }}
                             </td>
                             <td>
+                                {{ $data->alamat ?? '' }}
+                            </td>
+                            <td>
                                 {{ $data->kavling ?? '' }}
                             </td>
                             <td>
@@ -72,7 +78,7 @@
                                 {{ $data->spk ?? '' }}
                             </td>
                             <td>
-                                {{ $data->progress ?? '' }}
+                                {{ $data->progres ?? '' }}
                             </td>
                             <td>
                                 {{ $data->cicilan ?? '' }}

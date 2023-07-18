@@ -17,11 +17,12 @@ class CreateDataTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('user_id');
             $table->string('telepon');
+            $table->string('alamat');
             $table->string('kavling');
             $table->string('tipe');
             $table->string('spk');
-            $table->string('progres');
-            $table->string('cicilan');
+            $table->unsignedInteger('progres');
+            $table->unsignedInteger('cicilan');
             $table->timestamps();
             $table->softDeletes();
 
